@@ -5,7 +5,7 @@ module Users
     end
 
     def create
-      user = User.new(user_auth_params)
+      user = UserAuthentication.new(user_auth_params)
       if user.save!
         render json: {user: user}
       else
@@ -19,7 +19,7 @@ module Users
 
     private
     def user_auth_params
-      params.require(:user_authentication).permit(:username, :password)
+      params.require(:users_authentication).permit(:email, :password)
     end
   end
 end

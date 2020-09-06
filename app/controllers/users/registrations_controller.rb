@@ -6,11 +6,9 @@ module Users
 
     def create
       user = UserAuthentication.new(user_auth_params)
-      if user.save!
-        render json: {user: user}
-      else
-        # TODO: build an error service
-      end
+      raise "Something went wrong" unless user.save
+
+      render json: {user: user}
     end
 
     def update

@@ -9,14 +9,15 @@ module Users
     def create
       user = UserAuthentication.find_by_email(user_auth_params[:email])
       raise "User not found" unless user
+      raise "Check your password!" unless user.valid_password? user_auth_params[:password]
 
-      unless user.valid_password? user_auth_params[:password]
-        render json: {
-          error: "Check your password!"
-        }
-      else
-        render json: user
-      end
+      payload = {user_email: user.email}
+      private_key = OpenSSL::PKey::RSA.new(ENV['PRIVATE_API_KEY'].gsub("\\n", "\n"))
+      token = JWT.encode payload, private_key, 'RS256'
+
+      render json: {
+        token: token
+      }
     end
 
     private

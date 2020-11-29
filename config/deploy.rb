@@ -11,9 +11,12 @@ set :branch, :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/ubuntu/authentication_service"
+set :deploy_to, "/home/ubuntu/authentication_service/apps"
 set :rvm_use_path, '/usr/share/rvm/scripts/rvm'
-
+set :scm, :git
+set :keep_releases, 5
+set :format, :pretty
+set :log_level, :debug
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh

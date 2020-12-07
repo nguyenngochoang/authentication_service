@@ -1,4 +1,5 @@
 require "rvm/capistrano"
+
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.14.1"
 set :rvm_ruby_string, :local              # use the same ruby as used locally for deployment

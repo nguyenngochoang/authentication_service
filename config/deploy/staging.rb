@@ -7,12 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server "54.169.236.231", user: "deployer", roles: %w(web app db), primary: true
 
-set :stage, :production
-set :rails_env, :production
-set :deploy_to, "/home/deployer/authentication_service/apps/"
-set :branch, :master
 
 # role-based syntax
 # ==================

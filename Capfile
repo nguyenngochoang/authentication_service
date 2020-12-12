@@ -14,9 +14,7 @@ require "capistrano/deploy"
 # or
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
-require "capistrano/puma"
 
-install_plugin Capistrano::Puma
 
 # Include tasks from other gems included in your Gemfile
 #
@@ -29,11 +27,14 @@ install_plugin Capistrano::Puma
 #   https://github.com/capistrano/rails
 #   https://github.com/capistrano/passenger
 #
-# require "capistrano/rvm"
+require "capistrano/rvm"
+require "capistrano/puma"
+install_plugin Capistrano::Puma
+
 # require "capistrano/rbenv"
 # require "capistrano/chruby"
-# require "capistrano/bundler"
-# require "capistrano/rails/assets"
+require "capistrano/bundler"
+require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 
